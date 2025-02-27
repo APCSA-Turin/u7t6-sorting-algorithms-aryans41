@@ -8,24 +8,29 @@ public class InsertionSort {
 
     // PART A. implementing insertion sort
     public static int[] insertionSort(int[] elements) {
+        int count = 0;
         for (int i = 1; i < elements.length; i++) {
             int currentValue = elements[i];
             int j = i;
             while (j > 0 && elements[j - 1] > currentValue) {
+                count++;
                 elements[j] = elements[j - 1];
                 j--;
             }
             elements[j] = currentValue;
         }
+        System.out.println("INSERTION SORT: Number of loop iterations: " + count);
         return elements;
     }
 
     public static void selectionSort(int[] elements) {
         int minimumIndex = 0;  
+        int count = 0;
         int temp;  
         for (int i = 0; i < elements.length; i++) {
             minimumIndex = i;
             for (int x = i + 1; x < elements.length; x++) {
+                count++;
                 if (elements[x] < elements[minimumIndex]) {
                     minimumIndex = x;
                 }
@@ -34,6 +39,7 @@ public class InsertionSort {
             elements[i] = elements[minimumIndex];
             elements[minimumIndex] = temp;
        }
+       System.out.println("SELECTION SORT: Number of loop iterations: " + count);
     }
 
     // PART B. sorting a 1000-word list
